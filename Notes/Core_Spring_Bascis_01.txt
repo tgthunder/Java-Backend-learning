@@ -1,0 +1,71 @@
+Spring Core ->
+-Framework for making complex , scalable enterprise-level applications.
+- Prerequisite :- Core java , JDBC , JSP and Servlet , Html , css , js , mysql/postgres.
+- Spring is a dependecy injection framework to make java applications loosely coupled.
+- Dependecy Injection 
+- Inversion of Control (IOC)
+
+Spring Modules ->
+- Core Spring
+- AOP 
+- Spring Data 
+- Spring Web modules 
+- Test
+
+Spring IOC Container :-
+- It is one of the most important component of Spring. 
+- It creates an object , it can hold an object in memory and can inject object into another class.
+- Maintains the life cycle of object.
+- we need to give 2 things 1. beans 2. config
+- using ApplicationContext we can Impliment IOC Container. It is an interface.
+
+
+- Dependency injection can be done in 2 ways:
+1. Using setter injection 
+2. Using constructor injection.
+
+- IOC container uses automatically sets the values of oject using setter methods
+- We need to give information about which data type to inject as well
+- configuration file is simply an xml file in which we need to give beans means classes and we store 
+values in this beans.
+
+
+Maven Project ::::
+you can find java files in src
+pom.xml( Project object Model) ->Your project structure and external dependencies 
+are defined in this file... you can add external dependencies in this file....
+now add spring core and spring context modules in pom.xml
+
+
+Spring-Core Module - This module provides components and utilities for other modules for bulding java appplications
+Spring-Context Module - This  is extended version of core that contains advanced features for creating and managing beans..
+
+Creating Beans ->
+Bean is simple java class which has some properties , getters , setters and constructors.
+-create a java class in the src section means you are creating a bean..
+-define getters , setters and constructors 
+-create a config.xml file and add beans so that IOC container will manage it
+-you can perform setter injection using property tag to set values of variables.
+
+Adding Dependencies of Collection frameWork ->
+How to inject List Collection -> 
+- inside property element write list element and inside list simply pass multilple values inside value tag
+- null tag is used to add null value
+- Same do for set
+- For Map data structure use entry tag and add key and value
+- If you have only one item in list dont add list tag directly you can write value.
+
+Adding object of another class inside a class using DI ->
+- simply use ref tag inside property tag and give bean name of class which we have to use inside
+ a class
+- You can make use of p schema also you can give ref an attribute as well.
+
+# Dependecy Injection through constructor injection ->
+- Create class or bean with constructor.
+- use constructor-args tag to add property values.
+- add values sequencially . You can specify data type to tell the IOC container which data to be set.
+- Ambiguity problem during constructor
+- Constructor takes by default string values means if you have more constructors
+with different data types String will have higher preference 
+- To resolve this issue you can declare type attribute inside constructor-arg tag
+- You can change the order of values inside constructor-arg using index attribute

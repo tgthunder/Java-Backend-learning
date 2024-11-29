@@ -1,0 +1,43 @@
+Databases , JPA , ORM , MongoDB 
+
+
+MongoDB -> NoSql database
+- stores the data in collections which is equal to table in rdbms.
+- It consits of fields which are same as colums in sql 
+- It has documents which are equivalent to rows in sql.
+- If database doesnt exist you can simply create new database using use database_name.
+- db.Collection_name.insertOne({insert data like we insert in JSON}).
+Above command will create new collection and insert one document.
+- MongoDB adds unique id inside document to uniquely identify any document.
+- You can get any document using keys in document.
+- you can perform delete operation using deleteOne. This will delete entire document.
+- you can perform update operation using updateOne , updateMany
+
+ORM - object relational mapping.
+- used to map java objects to database tables.
+- you can work with databases with the help of oops. make it easier
+to interact with databases.
+Ways ->
+JPA
+JPA means Java Persistance API which provides interfaces and classes , 
+annotations to achive ORM.
+We can impliment JPA interface through Hibernate , EclipseLink , openJPA
+
+** Spring Data JPA -> simplifies the working with JPA by providing higher
+level abstractions and utilities. still you need JPA implimentation to use
+spring Data JPA. such as hibernate , EclipseLink and openJPA.
+- JPA is primarly designed to work with relational databases. Not with MongoDB
+
+# To use mongoDB we can use Spring Data MongoDB. It serves as a persistance provider
+- You just need to add the dependecy of Spring Data MongoDB
+- query method DSL and criteria API these are the 2 ways using which we can interact with 
+databases.
+
+# MongoDB SetUp for Spring Boot ->
+- add dependecy of spring boot MongoDB in pom.xml
+- now write the connection properties inside resources directory 
+of your maven project so that @SpringBootApplication could 
+understand using @EnableAutoConfiguration. It will automatically 
+configure the mongoDB
+- currently we are on localhost so we dont need any authentication
+and autherization so no need to write username and password.

@@ -1,0 +1,54 @@
+var keyword - Simplifies code. with the help of var complier will 
+automatically assign the type of variable.
+
+# What is tight coupling : - you have created a gameRunner class and MarioGame
+class. you had implimented a constructor for mario game. Now what if I wanted to 
+create a SuperContra game. Again I need to impliment constructor for Supercontra
+inside gameRunner. SO this Is Tight coupling....
+
+# how can I make Java classes loosly coupled? ->
+1. Using a Interface  -> create an interface to impliment multiple games so that you
+dont need to make change inside GameRunner class. So now your GameRunner is
+not really tightly coupled with any specific game.
+create a PacMan game and implement the GameConsole interface.
+- Try to understand that we are wiring specific Game to GameRunner class.
+- Game is injected or wiried with GameRunner.
+- now we are creating objectes and wiring them manually. 
+- From now onwards spring will handle all these things.
+- First We want to create a spring context inside JVM. so that spring could manage everything.
+
+Lets Create our first spring bean...
+Steps -> 
+1. launch a spring context -> ApplicationContext..
+2. configure the things that we want spring to manage -> we can achive this by creating a configuration
+class
+First create a configuration class
+Add @Configuration annotation so that spring will understand that its  a configuration class.
+Now how to launch a spring context-> using annotationConfigApplicationContext which we would
+have already done with Xml configuration..
+@Bean is used to make  methods beans.
+
+- Now create more fields like age 
+- create a custom class person and make it as a bean 
+- record keyword reduces the verbosity of writing getter, setter , constructor, toString. for a class
+record will automatically manage them. (Introduced in java 16)
+- we can give custom name to our bean..
+- you can bring existring beans into another bean using 2 approaches.
+1. Using direct method calls. You can directly call the the methods that are beans.
+2. Using parameters-> pass the existing beans as parameters while creating new beans
+- see this we can now create new beans , we can use existing beans to create new beans.
+
+----------------------------------------------------------------------------------------------------------------------
+# Spring container , IOC Container , Spring context , beans ->
+- spring container is the container which manages spring beans and 
+their lifecycle. Also called as IOC container , spring context..
+# difference bt pojo , java beans , spring beans.(Refer Slides from course)
+- application context/IOC container provides a getBeanDefinationName 
+method to list all the beans present in your context.
+- you can check every method with getBeans.
+- How to priarotize beans when you want to retrive them by type. using 
+@primary annotation.
+- you can make use of @Qualifier annotation to select the bean for 
+autowiring..
+- while passing parameters it would check the type of bean which we
+are injecting..

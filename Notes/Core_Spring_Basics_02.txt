@@ -1,0 +1,34 @@
+Life cycle Methods of bean->
+- Spring provides 2 important methods to every bean 
+- public void init() , public void destroy()
+- init() this method used for initialization code , loading , config , connecting db , webservice etc.
+- desstroy() method is for clean up purpose means closing database conn and all these things
+
+The proccess followed by IOC Container or Spring ->
+- We create bean and configure it by xml file.
+- IOC container will create an object of that bean or class
+- It adds values through DI 
+- calls init() method
+- we are ready to read and use bean
+- after performing all the activties it runs destroy() method
+ ** Configuring init() and destroy() using following technique
+- Xml
+- Interfaces
+- Annotations
+
+# Using xml ->
+-follow the same proccess as we have done in the past and simply add the init-method and destroy-method 
+attribute to set init() and destroy() method in your container
+- You need to define both the methods
+To call the destroyer by container we can use AbstractApplicationContext container..
+- the shutDownHook calls the destroyer method 
+
+# Using Interfaces ->
+- we have Initializingbean interface which has some methods to perform init() method you just need 
+to overide these methods
+- DisposableBean interface provides you destroy method..
+
+# Using annotations ->
+- @Postconstruct is used to call the methods after property construction done by IOC means for running 
+init() method
+- you need to specify context tag inside xml file to run all the annotation you have declared

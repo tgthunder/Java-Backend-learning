@@ -1,0 +1,20 @@
+Autowiring In Spring ->
+- It is a feature of spring framework in which spring Container adds dependencies autometically.
+- It can not works with primitive data type values. It works only with reference type objects.
+- when we inject object of one class into another this is wiring
+# Autowiring using xml config->
+1) byName -> in this method you specify name of your object in destination class and if any bean inside xml is present with same name
+then your object will be injected in the destination bean.
+it will check the name of object present in destination class then it find is there any 
+bean present with same name. if present then it will be autowired.
+2)byType -> check the classname basically type.  But what if you have declared
+more than one beans of same type. In this case you will get error
+3) constructor -> It checks the constructor of destination class whatever objects 
+declared in that it will simply injects that objects.
+
+#Autowiring using annotation
+You can just add @Autowired annotation on variable name , constructor and setter method..
+to inject object of one class to another.
+- Try to keep name of the bean same as object name
+- @Qualifier is used with @Autowired to tell the IOC container which bean to be injected inside 
+destination class

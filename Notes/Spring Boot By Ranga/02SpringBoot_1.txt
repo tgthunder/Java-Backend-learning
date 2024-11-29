@@ -1,0 +1,94 @@
+World Before Spring Boot->
+- manual configuration of external dependencies
+- configuration of web dependecies 
+- people had to spend many days for configurations and lot of time 
+for maintainace.
+
+# Spring Boot ->
+- Create a new spring boot project with the help of spring initializr.
+- import the project in eclipse and run it. You would see tomcat server 
+is automatically started and running on port 8080 along with that
+many logs has been generated.
+
+# lets build our first RestAPI
+- create a RestController and a Course class which has id , name and 
+author fields and try to retrive data using a RestAPI.
+- make use of RequestMapping annotation to map the method for 
+retriving the data.
+
+# Exploring spring boot starter projects ->
+- I need lot of frameworks to build application features.
+- starters: This starter projects adds all the dependecies which are those required for
+building applications.
+- dependecies are predefined in the starter projects(See in the pom.xml in your project
+you will see all the dependencies already present for making web applications 
+and rest API , testing )
+- you can use different starter projects for different functionality.
+- it helps you to cofigure the dependencies with compatible versions.
+
+# Auto Configuration ->
+- I need a lot of configuration to set up an java application.
+- But spring boot auto-configuration feature will make it very very easy..
+- It auto-configure your app based on which framewroks are present in class path
+- also based on what is the existing configurations.
+- For example , For web application auto configurations are web servlets , tomcat,
+jason<->Bean converter... these things are automatically configured..
+- see in the maven dependencies you will get auto-configuration jar. in this you will
+see everything that could be auto-configured.
+
+# Spring boot Devtools
+- when you update the code you don't need to restart the server. This above dependency
+will handle it.
+- It increases the developer productivity
+- Remember: changes in the pom.xml will not be updated by devtools
+
+# Important features that spring boot provides to make production-ready application
+1. Profiles - Single application has different envirnoments like Dev(development),
+Test(Testing) , prod(Production) , stage.
+- Every env needs different configuration. So you can manage these configurations
+with the help of spring boot profiles.(Refer the image in slide)
+- profiles enable you envirnment specific configuration.
+- go to the property files there you can create configurations for seperate envirnments
+-create application-dev.properties for configuring dev env..  inside this you can make
+things at specific level like debug , trace ,info , warning ,error , off 
+- Now after creating a log you need to activate by adding in application.properties.
+- for example if you activate prod profile then all configurations related to prod level
+this will be configured autometically. and only the mentioned logs will be printed.
+- priority level ->
+trace  - all the below logs will be printed
+debug - all the below logs will be printed except trace 
+info
+warning
+error
+off
+
+# How We can Actually configure complex properties using property
+files.
+- Now enlist and assign value to the services that you want to configure
+inside application.properties file.
+- For example , create a currecy-service and configure the values of some
+fields with an java objects 
+- Use @ConfigurationProperties annotation to do so..
+- make the class @Component so that spring will manage object creation
+- Now spring will uderstand the properties and create them on its 
+own.
+- now your application porperties are configured with Configuration class
+- create a controller to retirve the data.
+- you can configure these properties inside dev env or any other particular
+env..
+- this will act as centralized property configurations..
+
+# Embedded Servers->
+- Spring boot already come up with embedded servers.
+- its very easy to run your application on anyones pc using jar files.
+
+# Spring boot actuator->
+ - this feature enable you to monitor your application
+- add dependecy of actuator 
+- it provides a number of endpoints to really monitor your applications
+- just add /actuator path in url when the application is running and add
+endpoint that you want to monitor.
+- By default it provides only health endpoint. If you want to use more
+endpoints you can configure them inside properties files.
+
+# Spring vs Spring MVC vs Spring Boot

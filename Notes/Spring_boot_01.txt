@@ -1,0 +1,84 @@
+Spring Boot ->
+-spring boot is a java framework used for making java applications
+- spring boot makes the configuration setup easy so that developers 
+can focus on their features. Means it make the configuration set up easy 
+and reduce the manual work.
+- You can build standalone applications meaning that you need not 
+to set up tomcat server. you dont need to deploy your jar files 
+on tomcat server.
+- Spring boot comes with embedded server.
+
+# Starting with spring boot
+Spring initializr is a web-tool for creating spring boot project.
+- You can specify your project type (Maven or Gradle) , langauge , spring boot version , dependencies , project 
+configuration name , package ,artifact
+- Jar files are packaged files in which you can run your java applications , libraries and all using command line.
+- War files require server.
+- now simply run your first spring boot application using command line in eclipse.
+- you have a PID means all the proccesses have been included in this PID 
+
+# Maven ->
+- build tool which simplifies build process and manages dependencies (pom.xml)
+Dependencies -> already written code , methods so many things that you can just add in pom.xml
+build  proccess-> test , compile , validate , package , verify , install , deploy many more.
+- you can create mvn jar using package   to run and share the project
+
+***
+- we externalize the proccess of object creation using spring. There is a IOC container
+who take cares of life cycle of beans.
+- @component annotation - IOC container keeps the objects of only those classes
+above which this annotation has applied.
+
+- MyFirstProjectApplication has a main method and this is the entry point of your 
+spring boot project.
+- annotation tells the more information about a class, method , fields , constructor.. like specifiying api endpoint,
+database table mapping.
+we can use annotations on above types.
+# @SpringBootApplication - This annotation is applied on main Class of the project which contains main method
+- It performs many tasks of following annotations
+1) @componentScan - Scans the classes on which @component is added so that IOC container will inject objects
+for these classes.
+@componentScan find the classes inside the base package only. Base package is the package in which @SpringBootApplication
+has been declared
+- @RestController - This is also similar to @component but has some extra functionality
+2)@EnableAutoConfiguration - Automatically configure things like you dont need to manually set up for mongoDB
+this will automatically hadles
+3) @Configuration - This is used to create bean from class 
+
+
+We are going to learn further things with the help of a project
+Project Name - Journal Application...
+Rest Api -> Representational state transfer Application programming interfaces
+- Lets say I want to access something which is availble on server. You can access it using rest Api.
+client creates a request sends to the server. server procceses the request and send to resposne.
+- we/client send the request to server through api.. we can run jar files on server..
+- for example we make request of premium plan on netflix.
+- pojo classes - plain old java object.
+- localhost : this is the server which is running on our local machine
+- 177.178.29: suppose this is a nextflix server
+- then what is 8080: this is port our local port basically
+- After that we can specify our routes
+for example 177.178.29:8080/nextflix/plans -> this is the route to get the premium or standard nexflix
+plans.
+177.178.29:8080/nextflix/plans  this is actually what -> a url.
+- we cant access or make request only with url for that we would require a Http verb
+- URL+HTTP VERB 
+
+** HTTP Verbs  -> 
+1) GET -> for getting or to see the data
+2) POST-> to create the data
+3) PUT -> to modify
+4) DELETE-> to delete
+
+Now lets create a package controller for our journal application
+- make a class EntryController in which we write all the endpoints
+- Alwas make a HealthCheck controller class whenever you create a spring boot application..
+- whatever you return from your endpoints it will automatically convert into json 
+- you need to map your methods using  paths mappings. Getmapping means you are running the particular method  for getting the data only.
+
+Note : If you hit the url using browser you will be using get request all the time so to use another http verbs you can download
+postman -> used for testing , debugging api's.
+Now make an entity package to create journalEntry class in which we can creates journal id , title and content these kind of 
+properties.
+
+

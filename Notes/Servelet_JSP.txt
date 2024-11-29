@@ -1,0 +1,56 @@
+- Server can be accessed all over the world through IP address
+- Understand the client server architecture
+- Life cycle of servlet
+- we dont need to create all the set up for servlet. Tomcat (container)
+will manage everything
+-1. init() 2. service() 3.destroy()
+
+- you can write servlet in dynamic web projects as well as in maven project
+- you should keep everything specific like css , html , js and jsp files in a sep folder
+- always use contextpath using getContextPath() method inside a link..
+- using jsp we can embed java in html for creating dynamic web applications
+
+implimenting a servlet:
+1. by implimenting servlet interface (unccessarily you need to write implimentation of all the methods)
+2. by exending GenericServlet class (only one service() method is used to handle all type of request)
+3. by extending HttpServlet class (sep method has implimented for each req)
+
+1.By Servlet interface 
+-we can make use of annotation like @webservlet followed by source name to run servlet
+- The service method run for every source which can be hit in the url
+
+3.HttpServlet
+- we can impliment sepecific method for specific request
+
+
+
+Handling request and response:
+- we get two objects from methods :
+1. request object...
+2. respose object...
+
+- we can get the data from request object using getParameter method
+- we can disply the data in the form of html using response object
+- we can store the data and redirect it from database
+
+// Session management..
+- It is the proccess of managing requests of millions of users
+1. httpsession
+2.cookies
+3.url rewriting
+
+2. Cookies-
+working -> when client resquest a url then servlet runs and it send a textual info(cookie) along with response 
+- and the cookie will be saved on client side(users browser) for particular lifespan
+- Cookie remains there for specified amount of time
+- you can access it through different different servlets...
+- Cookie is less secure
+
+1.Httpsession:
+This is an object which is automatically created while a client request a url 
+- This will create a unique id for each user and stores information about the user
+- when the client again visit the url then server is able to identify the user with the help of unique id..
+- The information is stored on the server itself and unique id is stored client side...
+
+
+** ServletConfig and servletContext(Remaining)

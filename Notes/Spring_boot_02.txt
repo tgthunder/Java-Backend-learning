@@ -1,0 +1,31 @@
+@Restcontroller ->Used to create rest API
+This is combination of 2 annotations 
+1)@controller -> this is used for making a class as a spring MVC controller
+2)@ResponseBody -> make sure that return value of every method converted 
+into json and sent as a http response.
+
+Now We are going to learn Rest Api in details -
+:- Create a pojo class for making entries of journal..
+:- now create a method to get all the journals inside controller of journal entry
+(GetMapping)
+:- create a map to store the id and journal entries.
+Note- Method inside the controller class should be public so that it could be
+accessed and invoked with the help of spring framework and hhtp requests.
+select raw and json in the body of post request indicates the body will contain data
+in json format. This allows server to parse and data accuratly.
+:- (PostMapping) used to create or send data from request body it binds rquest 
+body to java object (body data can be in JSON and XML format)
+Actually you create a object of the class in which you have to store the data 
+you pass this object as a paramter to PostMapping method with @RequestBody 
+annotation..
+now append/put values in Map/databse using PostMapping methods. return 
+boolean values so that you would get confirm that data has inserted properly.
+body content will always go with post not with get..
+Note :- Dont create same endpoints it will make your spring boot confuse which 
+method to run. so give porper routes.
+- Now How can I get journaentries using specific id 
+for this we use @pathvarible for passing dynamic data. please specify the data
+type of varible properly.
+
+:- deleteMapping (used to delete something )
+in our case we want to delete an entry of journal by id.
