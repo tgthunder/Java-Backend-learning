@@ -1,0 +1,47 @@
+JDBC - stands for java database connectivity
+- it is an API through which you can interact with set of databases with your java applications
+- consists of interconnected classes and interfaces.
+
+- when you write data in java code it will not be saved permenentally.
+- it stored in variables for instance of time.
+
+Requirenments:
+1. java
+2.Database(Mysql command line)
+3. JDBC driver 
+for Mysql we can use mysql-connector. Its a jar file which we have to set in envirnoment variables....
+
+Steps to cnnect JDBC
+1) Load the driver in memory..
+- java.lang contains Class class which has a method forName("com.mysql.jdbc.Driver")  // write down the name of your driver class
+- DriverManager.registerDriver(new com.mysql.jdbc.Driver()) // create an object of Driver class inside registerDriver method 
+follow any one above method..
+
+2) Establish a connection:
+- getConncetion method of DriverManager class will return an object of Connection type....
+Connection cn = driverManager.getConncetion("url" , "username","password");
+url -> if your database and java is on same device then you can use -> "jdbc:mysql://localhost:3306/dbname"
+username - "root" (for mysql)
+
+3) Create a query Statement , PreparedStatement , CallableStatement
+Statement - for simple queries
+PreparedStatement - for complex queries 
+CallableStatement - for pl sql
+eg
+	String q = "select * from students";
+	Statement stmt = cn.CreateStatement();
+	stmt.executeQuery(q);  // If you want to execute simple select query then use executeQuery method
+	Result set = stmt.executeQuery(q);
+executeQuery() -> return data in table form
+executeUpdate() -> doesnt return anything...
+
+4) Process the Data:
+while(set.next())
+loop runs till nextmethod goes to last row in table
+{
+	int id = set.getInt("studentId");
+	String name = set.getString("StudentName");
+}
+
+5) Close the conncetion:
+cn.close();
